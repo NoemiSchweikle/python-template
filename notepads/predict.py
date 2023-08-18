@@ -15,11 +15,11 @@ with open(loaded_objects_path, 'rb') as objects_file:
 model = loaded_objects['model']
 X = loaded_objects['X']
 y = loaded_objects['y']
-data = loaded_objects['data']
-X_scaled = loaded_objects['X_scaled']
+scaler = loaded_objects['scaler']
+X_test = loaded_objects['X_test']
 
 
-y_pred = model.predict(X_scaled)
+y_pred = model.predict(X_test_scaled)
 print("y_pred", y_pred)
 
 

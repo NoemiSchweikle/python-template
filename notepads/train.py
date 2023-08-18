@@ -17,10 +17,16 @@ print(data.head())
 y = data.loc[:,'mpg']
 X = data.drop('mpg',axis=1)
 
+#Train-test-split
+X_train
+
 #normalize data
 scaler = StandardScaler()
-scaler.fit(X)
-X_scaled = scaler.transform(X)
+scaler.fit(X_train)
+X_scaled = scaler.transform(X_train)
+
+
+
 
 #Linear Regression
 model = LinearRegression()
@@ -30,10 +36,9 @@ model.fit(X_scaled,y)
 # Create a dictionary to hold the objects
 saved_objects = {
     'model': model,
-    'X': X,
-    'y': y,
-    'data': data,
-    'X_scaled': X_scaled}
+    'X_test': X_test
+    'X_scaled': X_train_scaled
+    'scaler': scaler}
 
 # Save the dictionary with all objects to a file using pickle in the 'data/models' folder
 saved_objects_path = 'data/models/saved_objects.pkl'
