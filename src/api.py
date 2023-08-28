@@ -38,7 +38,7 @@ def training_data():
     return Response(training_data_df.to_json(), mimetype='application/json')
 
 @app.route("/predict", methods = ['GET'])
-def predict():
+def predict_function():
     #get parameters
     zylinder = request.args.get ('zylinder')
     ps = request.args.get('ps')
