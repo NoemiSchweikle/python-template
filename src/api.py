@@ -38,7 +38,7 @@ def training_data():
     return Response(training_data_df.to_json(), mimetype='application/json')
 
 @app.route("/predict", methods = ['GET'])
-def predict_function():
+def predict_func():
     #get parameters
     zylinder = request.args.get ('zylinder')
     ps = request.args.get('ps')
@@ -47,9 +47,10 @@ def predict_function():
     baujahr = request.args.get('baujahr')
 
     #make prediction
-    prediction = model.predict([zylinder, ps, gewicht, beschleunigung, baujahr])
-    prediction_reshape = prediction.reshape(-1,1)
-    return {'predicted miles per gallon:': int(prediction_reshape.item())}
+    prediction = model.predict([[zylinder, ps, gewicht, beschleunigung, baujahr]])
+    return {'predicted miles per gallon:': int(prediction.item())}
+
+
 
 # cwd = os.getcwd()  # Aktuelles Arbeitsverzeichnis abrufen
 # print("Current Working Directory:", cwd)
