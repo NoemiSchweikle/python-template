@@ -11,22 +11,22 @@ with open(loaded_objects_path, 'rb') as objects_file:
     loaded_objects = pickle.load(objects_file)
 
 model = loaded_objects['model']
-X_train_scaled = loaded_objects['X_train_scaled']
+X_test_scaled = loaded_objects['X_test_scaled']
 y_test = loaded_objects['y_test']
 data = loaded_objects['data']
-X_test_scaled = loaded_objects['X_test_scaled']
+X_test = loaded_objects['X_test']
 
 #get parameters
-zylinder = 10
-ps = 40
-gewicht = 20
-beschleunigung = 100
-baujahr = 80
+zylinder = 6
+ps = 133
+gewicht = 3410
+beschleunigung = 15.8
+baujahr = 78
 
     #make prediction
-x_test =[[zylinder, ps, gewicht, beschleunigung, baujahr]]
-print(x_test)
-prediction = model.predict(x_test)
+X_check =[[zylinder, ps, gewicht, beschleunigung, baujahr]]
+print(X_check)
+prediction = model.predict(X_check)
 print('predicted miles per gallon:', int(prediction.item()))
 
 print("predition", prediction)

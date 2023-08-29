@@ -14,10 +14,10 @@ with open(loaded_objects_path, 'rb') as objects_file:
 
 # Access the loaded objects
 model = loaded_objects['model']
-X_test_scaled = loaded_objects['X_test_scaled']
+X_test = loaded_objects['X_test']
 y_test = loaded_objects['y_test']
 data = loaded_objects['data']
-X_train_scaled = loaded_objects['X_train_scaled']
+X_test_scaled = loaded_objects['X_test_scaled']
 
 
 y_pred = model.predict(X_test_scaled)
