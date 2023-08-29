@@ -30,6 +30,3 @@ prediction = model.predict(x_test)
 print('predicted miles per gallon:', int(prediction.item()))
 
 print("predition", prediction)
-
-
-
