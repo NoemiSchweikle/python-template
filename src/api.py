@@ -76,8 +76,5 @@ def predict_func():
     else:
         return Response('One or more GET parameters is missing', mimetype = 'application/json')
 
-
 # cwd = os.getcwd()  # Aktuelles Arbeitsverzeichnis abrufen
 # print("Current Working Directory:", cwd)
-
-
