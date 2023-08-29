@@ -78,5 +78,3 @@ def predict_func():
 
 # cwd = os.getcwd()  # Aktuelles Arbeitsverzeichnis abrufen
 # print("Current Working Directory:", cwd)
-
-
