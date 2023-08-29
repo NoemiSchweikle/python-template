@@ -23,32 +23,35 @@ print("type", type(data))
 y = data.loc[:,'mpg']
 X = data.drop('mpg',axis=1)
 
-print("X", X.shape)
-print("y", y.shape)
+# print("X", X.shape)
+# print("y", y.shape)
 
-X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=12)
 
-print("X_train", X_train.shape)
-print("y_train", y_train.shape)
+# print("X_train", X_train.shape)
+# print("y_train", y_train.shape)
 
 
 #normalize data
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.fit_transform(X_test)
+X_test_scaled = scaler.transform(X_test)
 
 #Linear Regression
 model = LinearRegression()
-model.fit(X_train_scaled, y_train)
+model.fit(X_train, y_train)
+
+y_pred_model = model.predict(X_test)
+print("y_pred_model", y_pred_model)
 
 # save the model to disk
 # Create a dictionary to hold the objects
 saved_objects = {
     'model': model,
-    'X_test_scaled': X_test_scaled,
+    'X_test': X_test,
     'y_test': y_test,
     'data': data,
-    'X_train_scaled': X_train_scaled}
+    'X_test_scaled': X_test_scaled}
 
 # Save the dictionary with all objects to a file using pickle in the 'data/models' folder
 saved_objects_path = 'data/models/saved_objects.pkl'
